@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 4 U (http://www.xmlspy.com) by Ching-Hong Huang (Engsound Technical Enterprise Co., Ltd.) -->
+<Profile>
+	<Logging MessageLevel="0" LogLevel="0" Path=".\log" ChannelLog="true"/>
+	<Broadcast Enable="false" Address="234.1.1.107:5120"/>
+	<Gateway Name="PrimaryGateway" Protocol="tcp" Address="127.0.0.1:10009"/>
+	<Gateway Name="SecondaryGateway" Protocol="tcp" Address="127.0.0.1:10008"/>
+	<Entity Name="VMDSDispatcher.1" Type="Gateway" Class="VMDSDispatcher">
+		<TimeToArrive>300</TimeToArrive>
+		<TimeToResponse>300</TimeToResponse>
+		<TicketTimeout>180</TicketTimeout>
+		<FixedResourceCount>10</FixedResourceCount>
+		<DynamicResourceCount>10</DynamicResourceCount>
+		<MaxQueuedRequest>100</MaxQueuedRequest>
+	</Entity>
+	<Channel Name="StandAloneChannel">
+		<AccumulatedError>0</AccumulatedError>
+		<ErrorPerInterval>16</ErrorPerInterval>
+		<ErrorInterval>60</ErrorInterval>
+		<AckInterval>5</AckInterval>
+		<AckCount>20</AckCount>
+		<Timeout>5</Timeout>
+	</Channel>
+</Profile>
