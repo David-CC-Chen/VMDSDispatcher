@@ -78,7 +78,7 @@
             this.btnRUN.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnRUN.Location = new System.Drawing.Point(0, -1);
             this.btnRUN.Name = "btnRUN";
-            this.btnRUN.Size = new System.Drawing.Size(128, 23);
+            this.btnRUN.Size = new System.Drawing.Size(120, 23);
             this.btnRUN.TabIndex = 9;
             this.btnRUN.Text = "Start Dispatch";
             this.btnRUN.UseVisualStyleBackColor = true;
@@ -131,7 +131,7 @@
             this.btnSTOP.Enabled = false;
             this.btnSTOP.Location = new System.Drawing.Point(134, -1);
             this.btnSTOP.Name = "btnSTOP";
-            this.btnSTOP.Size = new System.Drawing.Size(104, 23);
+            this.btnSTOP.Size = new System.Drawing.Size(120, 23);
             this.btnSTOP.TabIndex = 11;
             this.btnSTOP.Text = "Stop Dispatch";
             this.btnSTOP.UseVisualStyleBackColor = true;

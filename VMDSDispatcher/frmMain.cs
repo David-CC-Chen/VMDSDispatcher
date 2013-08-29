@@ -687,7 +687,6 @@ namespace VMDSDispatcher
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            //m_GatewayClient.Open();
             if (!VmdsDbConnstrLoader.Load("VMDSDatabase"))
             {
                 MessageBox.Show("Load VMDSDatabase ConnectionString Settings Fail", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -707,14 +706,13 @@ namespace VMDSDispatcher
             }
             RemoteSqlConn.ConnectionString = RemoteDbConnstrLoader.ConnectionString;
             RemoteSqlConn.Open();
-            RemoteSqlConn.Close();
-
-            m_GatewayClient.Open();
+            RemoteSqlConn.Close();          
         }
 
         private void frmMain_Shown(object sender, EventArgs e)
         {
-
+            m_GatewayClient.Open();
+            btnRUN.PerformClick();
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
