@@ -20,7 +20,7 @@ namespace VMDSDispatcher
 
         private void LogException(string verb, Exception ex)
         {
-            LogEntry ent = new LogEntry(Severity.Error, this.ToString(), verb);
+            LogEntry ent = new LogEntry(Severity.Error, this.GetType().Name, verb);
             ent.AddMessage("Message={0};{1}", ex.Message, Environment.NewLine);
             ent.AddMessage("Source={0};{1}", ex.Source, Environment.NewLine);
             ent.AddMessage("StackTrace={0};", ex.StackTrace);
@@ -50,8 +50,8 @@ namespace VMDSDispatcher
             LogEntry ent = null;
             try
             {
-                string errlog = string.Format("IDX={0};CAMPAIGNLISTIDX={1};CUSTOMERID={2};CUSTOMERIDERR={3};PHONEIDX={4};CAMPAIGNCD={5};CAMPAIGNDT={6};",
-                                                                    WorkCtx.IDX, WorkCtx.CAMPAIGNLISTIDX, WorkCtx.CUSTOMERID, WorkCtx.CUSTOMERIDERR, WorkCtx.PHONEIDX, WorkCtx.CAMPAIGNCD, WorkCtx.CAMPAIGNDT);
+                string errlog = string.Format("IDX={0};CAMPAIGNLISTIDX={1};PHONEIDX={2};CAMPAIGNCD={3};CAMPAIGNDT={4};",
+                                                                    WorkCtx.IDX, WorkCtx.CAMPAIGNLISTIDX, WorkCtx.PHONEIDX, WorkCtx.CAMPAIGNCD, WorkCtx.CAMPAIGNDT);
 
                 ent = new LogEntry(Severity.Information, this.MessageIdx.ToString(), "Loop");
                 ent.AddMessage(errlog);

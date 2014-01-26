@@ -330,6 +330,11 @@ namespace VMDSDispatcher
             }
         }
 
+        /// <summary>
+        /// 檢查DB_CS的資料是否已經Ready
+        /// </summary>
+        /// <param name="pgdate"></param>
+        /// <returns></returns>
         private bool CheckCSProgramStatus(string pgdate)
         {
             ShowMessage("CheckCSProgramStatus");
@@ -365,6 +370,11 @@ namespace VMDSDispatcher
             }
         }
 
+        /// <summary>
+        /// 啟動VMDSImporter程式
+        /// </summary>
+        /// <param name="campaigndt"></param>
+        /// <returns></returns>
         private bool StartupVMDSImporter(string campaigndt)
         {
             ShowMessage("StartupVMDSImporter");
@@ -434,6 +444,14 @@ namespace VMDSDispatcher
             }
         }
 
+        /// <summary>
+        /// 檢查VMDSImporter是否已經執行過了
+        /// </summary>
+        /// <param name="campaigndt">campaign date 'yyyy/MM/dd'</param>
+        /// <returns>
+        /// true : VMDSImporter已經執行
+        /// false : VMDSImporter未執行
+        /// </returns>
         private bool CheckVMDSImporter(string campaigndt)
         {
             ShowMessage("CheckVMDSImporter");

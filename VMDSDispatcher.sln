@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VMDSDispatcher", "VMDSDispatcher\VMDSDispatcher.csproj", "{601A60B9-35B8-4CCB-99A4-741B81F7EA9E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NX.NXGatewayControl", "NX.NXGatewayControl\NX.NXGatewayControl.csproj", "{353C9DF8-00F0-4220-8D28-0C40B6743579}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{601A60B9-35B8-4CCB-99A4-741B81F7EA9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{601A60B9-35B8-4CCB-99A4-741B81F7EA9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{601A60B9-35B8-4CCB-99A4-741B81F7EA9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{353C9DF8-00F0-4220-8D28-0C40B6743579}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{353C9DF8-00F0-4220-8D28-0C40B6743579}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{353C9DF8-00F0-4220-8D28-0C40B6743579}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{353C9DF8-00F0-4220-8D28-0C40B6743579}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

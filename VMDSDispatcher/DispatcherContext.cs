@@ -20,6 +20,7 @@ namespace VMDSDispatcher
         private DataSet dsCampaign = null;
         private int nUMSRetryInterval = 0;
         public frmMain formObj = null;
+        public MainForm m_MainForm = null;
         public int nWaitInterval = 1000;
         // settings
         private int nDefaultWaitInterval;
@@ -53,7 +54,8 @@ namespace VMDSDispatcher
             if (VmdsSqlConn.State == ConnectionState.Open)
                 VmdsSqlConn.Close();
             LogEntry ent = new LogEntry(Severity.Information, "DispatcherContext::ThreadProc", "Dispatcher thread Terminate!");
-            formObj.OutputDebugInfo(ent);
+            m_MainForm.PostWorkingMessage(ent);
+            //formObj.OutputDebugInfo(ent);
         }
 
         private bool QueryActiveCampaign(string campaigndt)
@@ -171,8 +173,8 @@ namespace VMDSDispatcher
                 DateTime tnow = DateTime.Now;
                 if (tnow.ToString("yyyy/MM/dd") != CampaignDt)
                     return false;
-                if (formObj.IsStopDispatch)
-                    return false;
+                //if (formObj.IsStopDispatch)
+                //    return false;
                 nWaitInterval = nDefaultWaitInterval;
                 if (dsCampaign == null)
                 {
@@ -191,7 +193,7 @@ namespace VMDSDispatcher
                     nWaitInterval = this.nErrorWaitInterval;
                     return true; // SQL Error
                 }
-                nUMSRetryInterval = formObj.UMSRetryInterval;
+                nUMSRetryInterval = Convert.ToInt32(m_MainForm.UMSRetryInterval); //formObj.UMSRetryInterval;
                 dt = dsVodjob.Tables["tblVODJob"];
                 if (dt.Rows.Count == 0)
                 {
@@ -200,13 +202,13 @@ namespace VMDSDispatcher
                 }
                 ManualResetEvent[] manualEvents = null;
                 manualEvents = new ManualResetEvent[dt.Rows.Count];
-                WorkContext wctx = null;
+                //WorkContext wctx = null;
                 int i;
                 for (i = 0; i < dt.Rows.Count; i++)
                 {
                     manualEvents[i] = new ManualResetEvent(false);
-                    wctx = new WorkContext(i.ToString());
-                    wctx.formObj = this.formObj;
+                    WorkContext wctx = new WorkContext(i.ToString());
+                    wctx.m_MainForm = m_MainForm;
                     wctx.ContextIdx = i;
                     wctx.IDX = (int)dt.Rows[i]["IDX"];
                     wctx.CAMPAIGNLISTIDX = (int)dt.Rows[i]["CAMPAIGNLISTIDX"];
